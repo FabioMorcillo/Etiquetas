@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="fx.controller.CadastroController">
+   <center>
+      <Pane prefHeight="230.0" prefWidth="670.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtVara" layoutX="14.0" layoutY="35.0" prefHeight="31.0" prefWidth="189.0" />
+            <TextField fx:id="txtJuizo" layoutX="240.0" layoutY="35.0" prefHeight="31.0" prefWidth="189.0" />
+            <TextField fx:id="txtComarca" layoutX="467.0" layoutY="35.0" prefHeight="31.0" prefWidth="189.0" />
+            <TextField fx:id="txtAutor" layoutX="14.0" layoutY="106.0" prefHeight="31.0" prefWidth="643.0" />
+            <TextField fx:id="txtReu" layoutX="14.0" layoutY="176.0" prefHeight="31.0" prefWidth="643.0" />
+            <Label layoutX="14.0" layoutY="14.0" text="Vara" />
+            <Label layoutX="240.0" layoutY="14.0" text="Juízo" />
+            <Label layoutX="467.0" layoutY="14.0" text="Comarca" />
+            <Label layoutX="14.0" layoutY="85.0" text="Autor" />
+            <Label layoutX="14.0" layoutY="155.0" text="Reu" />
+         </children>
+      </Pane>
+   </center>
+   <top>
+      <Pane prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #77ea85;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblAgendamento" cache="true" layoutX="14.0" layoutY="8.0" text="Cadastro de Etiqueta" textFill="WHITE">
+               <effect>
+                  <DropShadow offsetY="3.0" />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane prefHeight="57.0" prefWidth="600.0" style="-fx-background-color: #76e8846f;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnCancelar" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnCancelar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Cancelar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Actions-button-cancel-icon-32x32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnSalvar" layoutX="490.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnSalvar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Cadastrar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Actions-ok-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnImprimir" layoutX="252.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnImprimir_Clicked" prefHeight="31.0" prefWidth="166.0" text="Imprimir">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Actions-button-cancel-icon-32x32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
