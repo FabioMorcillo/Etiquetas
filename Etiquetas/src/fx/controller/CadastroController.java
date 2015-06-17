@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import reports.JuridicoRel;
 import mvc.model.Juridico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import reports.JuridicoRel;
 
 public class CadastroController implements Initializable
 {
