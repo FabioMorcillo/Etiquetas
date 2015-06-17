@@ -107,6 +107,7 @@ public class LayoutImpressaoController implements Initializable
 		{
 			relatorio.imprimir(etiquetasLayout);
 			
+			btnCancelar_Clicked(event);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
