@@ -1,5 +1,6 @@
 package fx.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -8,11 +9,15 @@ import reports.JuridicoRel;
 import mvc.model.Juridico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class CadastroController implements Initializable
@@ -27,6 +32,7 @@ public class CadastroController implements Initializable
 	@FXML private TextField txtVara;
 	@FXML private TextField txtJuizo;
 	@FXML private TextField txtComarca;
+	@FXML private TextField txtProcesso;
 	@FXML private TextField txtAutor;
 	@FXML private TextField txtReu;
 	
@@ -115,14 +121,16 @@ public class CadastroController implements Initializable
 
 		System.out.println(etiquetas.size()+1);
 		
-		etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), txtJuizo.getText(), txtComarca.getText(), txtAutor.getText(), txtReu.getText()));
+		etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), txtJuizo.getText(), txtComarca.getText(), txtProcesso.getText(), txtAutor.getText(), txtReu.getText()));
 
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("QUANTIDADE");
-		alert.setHeaderText(null);
-		alert.setContentText("Etiquetas -> " + etiquetas.size());
+		txtVara.setText("");
+		txtJuizo.setText("");
+		txtComarca.setText("");
+		txtProcesso.setText("");
+		txtAutor.setText("");
+		txtReu.setText("");
 		
-		alert.showAndWait();
+		txtVara.requestFocus();
 		
 	}
 
@@ -137,15 +145,43 @@ public class CadastroController implements Initializable
 
 @FXML private void btnImprimir_Clicked() 
 	{
-		JuridicoRel relatorio = new JuridicoRel();
-		
-		try 
+
+		if ( etiquetas.size() == 0 )
 		{
-			relatorio.imprimir(etiquetas);
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("ERRO");
+			alert.setHeaderText(null);
+			alert.setContentText("Nenhuma etiqueta para ser impressa !");
 			
-		} catch (Exception e) {
+			alert.showAndWait();
+			
+			return;
+		}
+	
+		Stage stage = new Stage();
+	    Parent root = null;
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fx/view/LayoutImpressao.fxml"));
+			root = (Parent)loader.load();
+			
+			LayoutImpressaoController controller = loader.getController();
+		    
+			controller.setArrayList(etiquetas);
+			
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	    stage.setScene(new Scene(root));
+	    stage.setTitle("Etiquetas");
+	    stage.initModality(Modality.APPLICATION_MODAL);
+	    
+	    stage.initOwner(txtVara.getScene().getWindow());
+	    
+	    stage.setResizable(false);
+	    
+	    stage.show();
+	
+	
 	}
 }

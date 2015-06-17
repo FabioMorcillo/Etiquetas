@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="fx.controller.LayoutImpressaoController">
+   <top>
+      <Pane prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #77ea85;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblAgendamento" cache="true" layoutX="14.0" layoutY="8.0" text="Layout de Impressão" textFill="WHITE">
+               <effect>
+                  <DropShadow offsetY="3.0" />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane prefHeight="57.0" prefWidth="702.0" style="-fx-background-color: #76e8846f;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnCancelar" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnCancelar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Cancelar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Actions-button-cancel-icon-32x32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnImprimir" layoutX="320.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnImprimir_Clicked" prefHeight="31.0" prefWidth="166.0" text="Imprimir">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/print-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </bottom>
+   <left>
+      <VBox prefHeight="392.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle fx:id="rec1" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec3" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec5" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec7" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec9" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec11" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec13" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec15" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec17" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec19" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+         </children>
+         <padding>
+            <Insets left="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </left>
+   <right>
+      <VBox prefHeight="392.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle fx:id="rec2" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec4" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec6" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec8" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec10" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec12" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec14" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec16" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec18" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+            <Rectangle fx:id="rec20" arcHeight="50.0" arcWidth="5.0" fill="WHITE" height="37.0" onMouseClicked="#rec_Clicked" stroke="#220101" strokeLineJoin="ROUND" width="240.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Rectangle>
+         </children>
+         <padding>
+            <Insets left="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </right>
+</BorderPane>

@@ -6,6 +6,7 @@ public class Juridico
 	private String vara;
 	private String juizo;
 	private String comarca;
+	private String processo;
 	private String autor;
 	private String reu;
 	
@@ -14,12 +15,13 @@ public class Juridico
 	
 	}
 	
-	public Juridico( int id, String vara, String juizo, String comarca, String autor, String reu )
+	public Juridico( int id, String vara, String juizo, String comarca, String processo, String autor, String reu )
 	{
 		this.id = id;
 		this.vara = vara;
 		this.juizo = juizo;
 		this.comarca = comarca;
+		this.processo = processo;
 		this.autor = autor;
 		this.reu = reu;
 	}
@@ -32,7 +34,6 @@ public class Juridico
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getVara() {
 		return vara;
@@ -52,6 +53,15 @@ public class Juridico
 	public void setComarca(String comarca) {
 		this.comarca = comarca;
 	}
+	
+	public String getProcesso() {
+		return processo;
+	}
+
+	public void setProcesso(String processo) {
+		this.processo = processo;
+	}
+
 	public String getAutor() {
 		return autor;
 	}

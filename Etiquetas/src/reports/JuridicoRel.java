@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -25,23 +27,30 @@ public class JuridicoRel
 	public JuridicoRel() {
 		this.path = this.getClass().getClassLoader().getResource("").getPath();
 		this.pathToReportPackage = this.path + "reports/";
-		System.out.println(path);
+		//System.out.println(path);
 	}
 	
 	//Imprime/gera uma lista de Clientes
 	public void imprimir(List<Juridico> etiquetas) throws Exception	
 	{
-	
-		//InputStream input = new FileInputStream(new File(getPathToReportPackage() + "etiqueta-20.jrxml"));  
-		//JasperCompileManager.compileReport(input);
 		JasperReport report = JasperCompileManager.compileReport(getPathToReportPackage() +"etiqueta-20.jrxml");
 		
 		JasperPrint print = JasperFillManager.fillReport(report, new HashMap(), new JRBeanCollectionDataSource(etiquetas));
  
-		JasperViewer jasperViewer = new JasperViewer(print);
-        //jasperViewer.setVisible(true);
-        
-        JasperViewer.viewReport(print, false); 
+	       
+		if ( print.getPages().size() > 0 )
+		{
+			JasperViewer.viewReport(print, false);
+		}
+		else
+		{
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("ERRO");
+			alert.setHeaderText(null);
+			alert.setContentText("Nenhuma etiqueta para ser impressa !");
+			
+			alert.showAndWait();
+		}
         
 		// JasperExportManager.exportReportToPdfFile(print, "c:/Relatorio_de_Clientes.pdf");		
 	}
