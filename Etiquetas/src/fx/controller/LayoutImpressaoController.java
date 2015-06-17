@@ -90,7 +90,7 @@ public class LayoutImpressaoController implements Initializable
 				etiquetasLayout.add(etiquetas.get(pos));
 				pos++;
 				
-				if ( pos+1 >= etiquetas.size() )
+				if ( pos+1 > etiquetas.size() )
 				{
 					break;
 				}

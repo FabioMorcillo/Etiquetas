@@ -12,6 +12,7 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
@@ -40,7 +41,9 @@ public class JuridicoRel
 	       
 		if ( print.getPages().size() > 0 )
 		{
-			JasperViewer.viewReport(print, false);
+			JasperPrintManager.printPage(print, 0, true);//for Direct print  
+			
+			// JasperViewer.viewReport(print, false);
 		}
 		else
 		{

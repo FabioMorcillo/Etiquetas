@@ -38,6 +38,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
+            <Label fx:id="lblQuantidade" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="15.0" prefHeight="21.0" prefWidth="171.0" text="10" textAlignment="RIGHT" />
          </children>
       </Pane>
    </top>

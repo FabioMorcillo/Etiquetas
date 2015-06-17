@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
@@ -36,14 +37,18 @@ public class CadastroController implements Initializable
 	@FXML private TextField txtAutor;
 	@FXML private TextField txtReu;
 	
+	@FXML private Label lblQuantidade;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		lblQuantidade.setText("Etiquetas -> " + etiquetas.size());
 	}
 
 @FXML private void btnSalvar_Clicked() 
 	{
-	
+
+	/*
 		if ( txtVara.getText().trim().isEmpty() ) 
 		{
 			
@@ -117,9 +122,10 @@ public class CadastroController implements Initializable
 			txtReu.requestFocus();
 			
 			return;
-		}	
+		}
+		*/	
 
-		System.out.println(etiquetas.size()+1);
+		//System.out.println(etiquetas.size()+1);
 		
 		etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), txtJuizo.getText(), txtComarca.getText(), txtProcesso.getText(), txtAutor.getText(), txtReu.getText()));
 
@@ -132,6 +138,7 @@ public class CadastroController implements Initializable
 		
 		txtVara.requestFocus();
 		
+		lblQuantidade.setText("Etiquetas -> " + etiquetas.size());
 	}
 
 @FXML private void btnCancelar_Clicked(ActionEvent event) 

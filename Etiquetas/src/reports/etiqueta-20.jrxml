@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.0.3.final using JasperReports Library version 6.0.3  -->
-<!-- 2015-06-17T01:46:15 -->
+<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
+<!-- 2015-06-17T12:48:15 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" columnCount="2" printOrder="Horizontal" pageWidth="612" pageHeight="792" columnWidth="294" columnSpacing="14" leftMargin="5" rightMargin="5" topMargin="34" bottomMargin="5" uuid="16294267-2b88-4542-a693-6dd3de36e783">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -42,15 +42,16 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="79">
+		<band height="72">
 			<property name="com.jaspersoft.studio.unit.height" value="cm"/>
 			<rectangle>
-				<reportElement x="0" y="10" width="293" height="69" uuid="f1c6bc4a-da77-4227-8a62-a469b9c530d1">
+				<reportElement mode="Opaque" x="3" y="2" width="293" height="69" forecolor="#FFFFFF" uuid="f1c6bc4a-da77-4227-8a62-a469b9c530d1">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{vara} == null]]></printWhenExpression>
 				</reportElement>
 			</rectangle>
 			<textField isBlankWhenNull="true">
-				<reportElement x="10" y="17" width="130" height="12" uuid="d4d407e0-bf6b-4421-ac15-669fbf924c08">
+				<reportElement x="13" y="9" width="130" height="12" uuid="d4d407e0-bf6b-4421-ac15-669fbf924c08">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{vara} != null]]></printWhenExpression>
@@ -61,7 +62,7 @@
 				<textFieldExpression><![CDATA[$F{vara} + " / " + $F{juizo} + " / " + $F{comarca}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="10" y="31" width="270" height="12" uuid="9e6784ef-1e2d-40c5-a6ce-1db77c7ae4be">
+				<reportElement x="13" y="23" width="270" height="12" uuid="9e6784ef-1e2d-40c5-a6ce-1db77c7ae4be">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{autor} != null]]></printWhenExpression>
@@ -72,7 +73,7 @@
 				<textFieldExpression><![CDATA["Autor: " + $F{autor}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="10" y="45" width="270" height="12" uuid="2b5f5a4d-3009-413a-a56b-8ad6a83aac75">
+				<reportElement x="13" y="37" width="270" height="12" uuid="2b5f5a4d-3009-413a-a56b-8ad6a83aac75">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{reu} != null]]></printWhenExpression>
@@ -83,7 +84,7 @@
 				<textFieldExpression><![CDATA["Reu: " + $F{reu}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="10" y="59" width="270" height="12" uuid="454f77ee-3116-4e81-a84b-8c66fd8b7ade">
+				<reportElement x="13" y="51" width="270" height="12" uuid="454f77ee-3116-4e81-a84b-8c66fd8b7ade">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{reu} != null]]></printWhenExpression>
@@ -91,10 +92,10 @@
 				<textElement>
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Dt. Audiência: ___/___/_____     Hora: ___:___"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Dt. Audiência: _____/_____/_______     Hora: _____:_____"]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="150" y="17" width="130" height="12" uuid="efb77428-e000-4516-97f5-e7aca3081273">
+				<reportElement x="153" y="9" width="130" height="12" uuid="efb77428-e000-4516-97f5-e7aca3081273">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{vara} != null]]></printWhenExpression>
