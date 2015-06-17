@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
-<!-- 2015-06-17T15:53:31 -->
+<!-- 2015-06-17T16:39:20 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" columnCount="2" printOrder="Horizontal" pageWidth="612" pageHeight="792" columnWidth="294" columnSpacing="14" leftMargin="5" rightMargin="5" topMargin="34" bottomMargin="5" uuid="16294267-2b88-4542-a693-6dd3de36e783">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -56,7 +56,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{vara} != null]]></printWhenExpression>
 				</reportElement>
-				<textElement>
+				<textElement markup="none">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{vara} + " / " + $F{juizo} + " / " + $F{comarca} + "     Proc.: " + $F{processo}]]></textFieldExpression>
@@ -67,7 +67,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{autor} != null]]></printWhenExpression>
 				</reportElement>
-				<textElement>
+				<textElement markup="none">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Autor: " + $F{autor}]]></textFieldExpression>
@@ -78,7 +78,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{reu} != null]]></printWhenExpression>
 				</reportElement>
-				<textElement>
+				<textElement markup="none">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Reu: " + $F{reu}]]></textFieldExpression>
@@ -89,7 +89,7 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{reu} != null]]></printWhenExpression>
 				</reportElement>
-				<textElement>
+				<textElement markup="none">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Dt. Audiência: _____/_____/_______     Hora: _____:_____"]]></textFieldExpression>

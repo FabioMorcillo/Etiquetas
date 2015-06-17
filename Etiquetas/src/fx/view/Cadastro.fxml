@@ -54,11 +54,11 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnCancelar" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnCancelar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Cancelar">
+            <Button fx:id="btnCancelar" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnCancelar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Sair">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/Actions-button-cancel-icon-32x32.png" />
+                        <Image url="@../../images/Apps-session-logout-icon.png" />
                      </image>
                   </ImageView>
                </graphic>
