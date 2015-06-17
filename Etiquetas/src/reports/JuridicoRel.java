@@ -26,7 +26,7 @@ public class JuridicoRel
 	//Recupera os caminhos para que a classe possa encontrar os relatórios
 	public JuridicoRel() {
 		this.path = this.getClass().getClassLoader().getResource("").getPath();
-		this.pathToReportPackage = this.path + "reports/";
+		this.pathToReportPackage = this.path + "classes/reports/";
 		//System.out.println(path);
 	}
 	
