@@ -166,7 +166,7 @@ public class CadastroController implements Initializable
 		
 		tbl_Etiquetas.setItems(data);
 		
-		lblQuantidade.setText("Etiquetas -> " + etiquetas.size());
+		lblQuantidade.setText("Etiquetas -> " + etiquetas.size() + " / 20");
 		
 		if ( etiquetas.size() == 0 )
 		{
@@ -177,6 +177,15 @@ public class CadastroController implements Initializable
 		{
 			btnResetar.setDisable(false);
 			btnImprimir.setDisable(false);
+		}
+		
+		if ( etiquetas.size() == 20 )
+		{
+			btnCadastrarAlterar.setDisable(true);
+		}
+		else
+		{
+			btnCadastrarAlterar.setDisable(false);
 		}
 		
 	}
