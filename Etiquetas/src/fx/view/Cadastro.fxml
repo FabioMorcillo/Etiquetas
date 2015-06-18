@@ -8,44 +8,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="383.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.controller.CadastroController">
-   <center>
-      <Pane prefHeight="230.0" prefWidth="670.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextField fx:id="txtVara" layoutX="14.0" layoutY="35.0" prefHeight="31.0" prefWidth="189.0" />
-            <TextField fx:id="txtJuizo" layoutX="240.0" layoutY="35.0" prefHeight="31.0" prefWidth="189.0" />
-            <TextField fx:id="txtComarca" layoutX="467.0" layoutY="35.0" prefHeight="31.0" prefWidth="189.0" />
-            <TextField fx:id="txtProcesso" layoutX="14.0" layoutY="96.0" prefHeight="31.0" prefWidth="416.0" />
-            <TextField fx:id="txtAutor" layoutX="13.0" layoutY="159.0" prefHeight="31.0" prefWidth="643.0" />
-            <TextField fx:id="txtReu" layoutX="13.0" layoutY="224.0" prefHeight="31.0" prefWidth="643.0" />
-            <Label layoutX="14.0" layoutY="14.0" text="Vara" />
-            <Label layoutX="240.0" layoutY="14.0" text="Juízo" />
-            <Label layoutX="467.0" layoutY="14.0" text="Comarca" />
-            <Label layoutX="13.0" layoutY="138.0" text="Autor" />
-            <Label layoutX="13.0" layoutY="203.0" text="Reu" />
-            <Label layoutX="14.0" layoutY="75.0" text="Processo" />
-         </children>
-      </Pane>
-   </center>
-   <top>
-      <Pane prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #77ea85;" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="lblAgendamento" cache="true" layoutX="14.0" layoutY="8.0" text="Cadastro de Etiqueta" textFill="WHITE">
-               <effect>
-                  <DropShadow offsetY="3.0" />
-               </effect>
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblQuantidade" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="15.0" prefHeight="21.0" prefWidth="171.0" text="10" textAlignment="RIGHT" />
-         </children>
-      </Pane>
-   </top>
+<BorderPane prefHeight="800.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.controller.CadastroController">
    <bottom>
       <Pane prefHeight="57.0" prefWidth="600.0" style="-fx-background-color: #76e8846f;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnSalvar" layoutX="490.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnSalvar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Cadastrar">
+            <Button fx:id="btnResetar" layoutX="252.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnResetar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Resetar">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -54,7 +21,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnCancelar" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnCancelar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Sair">
+            <Button fx:id="btnSair" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnSair_Clicked" prefHeight="31.0" prefWidth="166.0" text="Sair">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -63,7 +30,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnImprimir" layoutX="252.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnImprimir_Clicked" prefHeight="31.0" prefWidth="166.0" text="Imprimir">
+            <Button fx:id="btnImprimir" layoutX="490.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnImprimir_Clicked" prefHeight="31.0" prefWidth="166.0" text="Imprimir">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -75,4 +42,94 @@
          </children>
       </Pane>
    </bottom>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <BorderPane prefHeight="197.0" prefWidth="670.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Pane prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #77ea85;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="lblAgendamento1" cache="true" layoutX="14.0" layoutY="5.0" text="Lista para impressão" textFill="WHITE">
+                           <effect>
+                              <DropShadow offsetY="3.0" />
+                           </effect>
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblQuantidade" alignment="CENTER_RIGHT" layoutX="485.0" layoutY="11.0" prefHeight="21.0" prefWidth="171.0" text="10" textAlignment="RIGHT" />
+                     </children>
+                  </Pane>
+               </top>
+               <center>
+                  <TableView fx:id="tbl_Etiquetas" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn fx:id="tblcol_Etiqueta" editable="false" maxWidth="631.0" minWidth="50.0" prefWidth="631.0" sortable="false" text="ETIQUETAS" />
+                    </columns>
+                  </TableView>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </center>
+   <top>
+      <BorderPane prefHeight="348.0" prefWidth="670.0" BorderPane.alignment="CENTER">
+         <top>
+            <Pane prefHeight="41.0" prefWidth="670.0" style="-fx-background-color: #77ea85;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblAgendamento" cache="true" layoutX="14.0" layoutY="5.0" text="Cadastro de Etiqueta" textFill="WHITE">
+                     <effect>
+                        <DropShadow offsetY="3.0" />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="57.0" prefWidth="670.0" style="-fx-background-color: #76e8846f;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnCadastrar" layoutX="490.0" layoutY="11.0" minHeight="35.0" mnemonicParsing="false" onAction="#btnCadastrar_Clicked" prefHeight="20.0" prefWidth="166.0" text="Cadastrar">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/Actions-ok-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnCancelar" layoutX="14.0" layoutY="11.0" minHeight="35.0" mnemonicParsing="false" onAction="#btnCancelar_Clicked" prefHeight="20.0" prefWidth="166.0" text="Cancelar">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/Actions-button-cancel-icon-32x32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+         </bottom>
+         <center>
+            <Pane prefHeight="234.0" prefWidth="670.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="txtVara" layoutX="14.0" layoutY="31.0" prefHeight="31.0" prefWidth="189.0" />
+                  <TextField fx:id="txtJuizo" layoutX="240.0" layoutY="31.0" prefHeight="31.0" prefWidth="189.0" />
+                  <TextField fx:id="txtComarca" layoutX="467.0" layoutY="31.0" prefHeight="31.0" prefWidth="189.0" />
+                  <TextField fx:id="txtProcesso" layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="416.0" />
+                  <TextField fx:id="txtAutor" layoutX="13.0" layoutY="147.0" prefHeight="31.0" prefWidth="643.0" />
+                  <TextField fx:id="txtReu" layoutX="13.0" layoutY="205.0" prefHeight="31.0" prefWidth="643.0" />
+                  <Label layoutX="14.0" layoutY="10.0" text="Vara" />
+                  <Label layoutX="240.0" layoutY="10.0" text="Juízo" />
+                  <Label layoutX="467.0" layoutY="10.0" text="Comarca" />
+                  <Label layoutX="13.0" layoutY="126.0" text="Autor" />
+                  <Label layoutX="13.0" layoutY="184.0" text="Reu" />
+                  <Label layoutX="14.0" layoutY="68.0" text="Processo" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </top>
 </BorderPane>

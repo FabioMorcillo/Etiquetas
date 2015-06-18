@@ -4,8 +4,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 import mvc.model.Juridico;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,10 +18,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import reports.JuridicoRel;
 
 public class CadastroController implements Initializable
@@ -28,6 +38,12 @@ public class CadastroController implements Initializable
 	{
 		this.etiquetas = etiquetas;
 	}
+
+	private ObservableList<EtiquetasTableView> data;
+	
+	@FXML private TableView<EtiquetasTableView> tbl_Etiquetas;
+	
+	@FXML private TableColumn<EtiquetasTableView, String> tblcol_Etiqueta;
 	
 	@FXML private TextField txtVara;
 	@FXML private TextField txtJuizo;
@@ -41,10 +57,57 @@ public class CadastroController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		tblcol_Etiqueta.setCellValueFactory(new PropertyValueFactory< EtiquetasTableView, String> ("etiqueta"));
+		
 		lblQuantidade.setText("Etiquetas -> " + etiquetas.size());
+		
+		AtualizarLista();
 	}
 
-@FXML private void btnSalvar_Clicked() 
+	private void AtualizarLista()
+	{
+		tbl_Etiquetas.setOnMousePressed(new EventHandler<MouseEvent>() 
+		{
+		    @Override 
+		    public void handle(MouseEvent event) 
+		    {
+		        if (event.isPrimaryButtonDown() && event.getClickCount() == 2) 
+		        {
+		        	Juridico juridico = tbl_Etiquetas.getSelectionModel().getSelectedItem().getJuridico();
+		        	
+		            txtVara.setText(juridico.getVara());
+		            txtJuizo.setText(juridico.getJuizo());
+		            txtComarca.setText(juridico.getComarca());
+		            txtProcesso.setText(juridico.getProcesso());
+		            txtAutor.setText(juridico.getAutor());
+		            txtReu.setText(juridico.getReu());
+		            
+		            txtVara.requestFocus();		            
+		        }
+		    }
+		});
+		
+		tbl_Etiquetas.getItems().clear();
+		
+		data = FXCollections.observableArrayList();
+		
+		for ( Juridico etiqueta : etiquetas )
+		{
+			String etq = etiqueta.getVara() + "/" + etiqueta.getJuizo() + "/" + etiqueta.getComarca()+"\n";
+			
+			etq += "Processo: " + etiqueta.getProcesso() + "\n";
+			etq += "Autor: " + etiqueta.getAutor() + "\n";
+			etq += "Reu: " + etiqueta.getReu();
+			
+			data.add(new EtiquetasTableView(etq, etiqueta));
+		}
+		
+		tbl_Etiquetas.setItems(data);
+		
+		lblQuantidade.setText("Etiquetas -> " + etiquetas.size());
+	}
+	
+@FXML private void btnCadastrar_Clicked() 
 	{
 
 	/*
@@ -128,19 +191,33 @@ public class CadastroController implements Initializable
 		
 		etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), txtJuizo.getText(), txtComarca.getText(), txtProcesso.getText(), txtAutor.getText(), txtReu.getText()));
 
-		txtVara.setText("");
-		txtJuizo.setText("");
-		txtComarca.setText("");
-		txtProcesso.setText("");
-		txtAutor.setText("");
-		txtReu.setText("");
+		btnCancelar_Clicked();
 		
-		txtVara.requestFocus();
 		
-		lblQuantidade.setText("Etiquetas -> " + etiquetas.size());
+		
+		AtualizarLista();
 	}
 
-@FXML private void btnCancelar_Clicked(ActionEvent event) 
+@FXML private void btnResetar_Clicked()
+{
+	etiquetas.clear();
+	
+	AtualizarLista();
+}
+
+@FXML private void btnCancelar_Clicked()
+{
+	txtVara.setText("");
+	txtJuizo.setText("");
+	txtComarca.setText("");
+	txtProcesso.setText("");
+	txtAutor.setText("");
+	txtReu.setText("");
+	
+	txtVara.requestFocus();
+}
+
+@FXML private void btnSair_Clicked(ActionEvent event) 
 	{
 	
 		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -189,5 +266,27 @@ public class CadastroController implements Initializable
 	    stage.show();
 	
 	
+	}
+
+	public static class EtiquetasTableView 
+	{
+	 
+		private final String etiqueta;
+		private final Juridico juridico;
+    
+		private EtiquetasTableView(String etiqueta, Juridico juridico) 
+		{
+			this.etiqueta = etiqueta;
+			this.juridico = juridico;
+		}
+
+		public String getEtiqueta() {
+			return this.etiqueta;
+		}
+
+		public Juridico getJuridico() {
+			return this.juridico;
+		}
+
 	}
 }
