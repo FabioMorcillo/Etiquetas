@@ -9,39 +9,6 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane prefHeight="800.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.controller.CadastroController">
-   <bottom>
-      <Pane prefHeight="57.0" prefWidth="600.0" style="-fx-background-color: #76e8846f;" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="btnResetar" layoutX="252.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnResetar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Resetar">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/Actions-ok-icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="btnSair" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnSair_Clicked" prefHeight="31.0" prefWidth="166.0" text="Sair">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/Apps-session-logout-icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="btnImprimir" layoutX="490.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnImprimir_Clicked" prefHeight="31.0" prefWidth="166.0" text="Imprimir">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/print-icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
-      </Pane>
-   </bottom>
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -64,8 +31,11 @@
                <center>
                   <TableView fx:id="tbl_Etiquetas" onKeyReleased="#tbl_Etiquetas_KeyReleased" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <columns>
-                      <TableColumn fx:id="tblcol_Etiqueta" editable="false" maxWidth="631.0" minWidth="50.0" prefWidth="631.0" sortable="false" text="ETIQUETAS" />
+                      <TableColumn fx:id="tblcol_Etiqueta" editable="false" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="300.0" resizable="false" sortable="false" text="ETIQUETAS" />
                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </center>
             </BorderPane>
@@ -115,21 +85,69 @@
          <center>
             <Pane prefHeight="234.0" prefWidth="670.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="txtVara" layoutX="14.0" layoutY="31.0" prefHeight="31.0" prefWidth="189.0" />
-                  <TextField fx:id="txtJuizo" layoutX="240.0" layoutY="31.0" prefHeight="31.0" prefWidth="189.0" />
-                  <TextField fx:id="txtComarca" layoutX="467.0" layoutY="31.0" prefHeight="31.0" prefWidth="189.0" />
-                  <TextField fx:id="txtProcesso" layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="416.0" />
+                  <TextField fx:id="txtProcesso" layoutX="13.0" layoutY="31.0" prefHeight="31.0" prefWidth="416.0" />
+                  <TextField fx:id="txtVara" layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="189.0" />
+                  <TextField fx:id="txtJuizo" layoutX="240.0" layoutY="89.0" prefHeight="31.0" prefWidth="189.0" />
+                  <TextField fx:id="txtComarca" layoutX="467.0" layoutY="89.0" prefHeight="31.0" prefWidth="189.0" />
                   <TextField fx:id="txtAutor" layoutX="13.0" layoutY="147.0" prefHeight="31.0" prefWidth="643.0" />
                   <TextField fx:id="txtReu" layoutX="13.0" layoutY="205.0" prefHeight="31.0" prefWidth="643.0" />
-                  <Label layoutX="14.0" layoutY="10.0" text="Vara" />
-                  <Label layoutX="240.0" layoutY="10.0" text="Juízo" />
-                  <Label layoutX="467.0" layoutY="10.0" text="Comarca" />
+                  <Label layoutX="14.0" layoutY="68.0" text="Vara" />
+                  <Label layoutX="240.0" layoutY="68.0" text="Juízo" />
+                  <Label layoutX="467.0" layoutY="68.0" text="Comarca" />
                   <Label layoutX="13.0" layoutY="126.0" text="Autor" />
                   <Label layoutX="13.0" layoutY="184.0" text="Reu" />
-                  <Label layoutX="14.0" layoutY="68.0" text="Processo" />
+                  <Label layoutX="14.0" layoutY="10.0" text="Processo" />
                </children>
             </Pane>
          </center>
       </BorderPane>
    </top>
+   <bottom>
+      <BorderPane prefHeight="77.0" prefWidth="670.0" BorderPane.alignment="CENTER">
+         <top>
+            <Pane prefHeight="57.0" prefWidth="600.0" style="-fx-background-color: #76e8846f;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnResetar" layoutX="252.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnResetar_Clicked" prefHeight="31.0" prefWidth="166.0" text="Resetar">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/Actions-ok-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnSair" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnSair_Clicked" prefHeight="31.0" prefWidth="166.0" text="Sair">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/Apps-session-logout-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnImprimir" layoutX="490.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnImprimir_Clicked" prefHeight="31.0" prefWidth="166.0" text="Imprimir">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/print-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane prefHeight="13.0" prefWidth="670.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="2.0" text="Desenvolvido por Fabio Morcillo do Nascimento">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </bottom>
 </BorderPane>

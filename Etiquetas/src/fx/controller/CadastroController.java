@@ -28,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -70,6 +71,9 @@ public class CadastroController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		tblcol_Etiqueta.prefWidthProperty().bind(tbl_Etiquetas.widthProperty().divide(1).subtract(2.1));
+		tblcol_Etiqueta.maxWidthProperty().bind(tblcol_Etiqueta.prefWidthProperty());
+		
 		txtVara.textProperty().addListener((ov, oldValue, newValue) -> {
 		     txtVara.setText(newValue.toUpperCase());
 		});
@@ -114,7 +118,7 @@ public class CadastroController implements Initializable
 					            txtAutor.setText(juridicoAlteracao.getAutor());
 					            txtReu.setText(juridicoAlteracao.getReu());
 					            
-					            txtVara.requestFocus();
+					            txtProcesso.requestFocus();
 					            
 					            tbl_Etiquetas.setDisable(true);
 					            btnImprimir.setDisable(true);
@@ -125,7 +129,7 @@ public class CadastroController implements Initializable
 		
 		AtualizarLista();
 		
-		Platform.runLater(() -> { txtVara.requestFocus();});
+		Platform.runLater(() -> { txtProcesso.requestFocus();});
 		
 	}
 
@@ -155,9 +159,9 @@ public class CadastroController implements Initializable
 		
 		for ( Juridico etiqueta : etiquetas )
 		{
-			String etq = etiqueta.getLocal()+"\n";
+			String etq = "Processo: " + etiqueta.getProcesso() + "\n";
 			
-			etq += "Processo: " + etiqueta.getProcesso() + "\n";
+			etq += etiqueta.getLocal()+"\n";
 			etq += "Autor: " + etiqueta.getAutor() + "\n";
 			etq += "Reu: " + etiqueta.getReu();
 			
@@ -275,7 +279,12 @@ public class CadastroController implements Initializable
 
 		if ( juridicoAlteracao == null )
 		{
-			etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), txtJuizo.getText(), txtComarca.getText(), txtProcesso.getText(), txtAutor.getText(), txtReu.getText()));
+			//for (int i = 1; i <=20; i++)
+			//{
+				etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), txtJuizo.getText(), txtComarca.getText(), txtProcesso.getText(), txtAutor.getText(), txtReu.getText()));				
+			//}
+			
+			
 		}
 		else
 		{
@@ -339,7 +348,7 @@ public class CadastroController implements Initializable
 	txtAutor.setText("");
 	txtReu.setText("");
 	
-	txtVara.requestFocus();
+	txtProcesso.requestFocus();
 }
 
 @FXML private void btnSair_Clicked(ActionEvent event) 
@@ -387,6 +396,8 @@ public class CadastroController implements Initializable
 	    stage.initOwner(txtVara.getScene().getWindow());
 	    
 	    stage.setResizable(false);
+	    
+	    stage.getIcons().add(new Image("images/tag.png"));
 	    
 	    stage.show();
 	

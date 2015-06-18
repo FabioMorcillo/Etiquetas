@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.0.3.final using JasperReports Library version 6.0.3  -->
-<!-- 2015-06-18T09:09:29 -->
+<!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
+<!-- 2015-06-18T12:30:27 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" columnCount="2" printOrder="Horizontal" pageWidth="612" pageHeight="792" columnWidth="294" columnSpacing="14" leftMargin="5" rightMargin="5" topMargin="34" bottomMargin="5" uuid="16294267-2b88-4542-a693-6dd3de36e783">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -53,21 +53,19 @@
 					<printWhenExpression><![CDATA[$F{vara} == null]]></printWhenExpression>
 				</reportElement>
 			</rectangle>
-			<textField isBlankWhenNull="true">
-				<reportElement x="13" y="6" width="276" height="14" uuid="d4d407e0-bf6b-4421-ac15-669fbf924c08">
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement x="13" y="6" width="276" height="13" uuid="d4d407e0-bf6b-4421-ac15-669fbf924c08">
 					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{vara} != null]]></printWhenExpression>
 				</reportElement>
 				<textElement markup="none">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{local} + "     Proc.: " + $F{processo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Processo: " + $F{processo}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="13" y="22" width="276" height="14" uuid="9e6784ef-1e2d-40c5-a6ce-1db77c7ae4be">
+				<reportElement x="13" y="32" width="276" height="13" uuid="9e6784ef-1e2d-40c5-a6ce-1db77c7ae4be">
 					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{autor} != null]]></printWhenExpression>
 				</reportElement>
 				<textElement markup="none">
@@ -76,9 +74,8 @@
 				<textFieldExpression><![CDATA["Autor: " + $F{autor}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="13" y="38" width="276" height="14" uuid="2b5f5a4d-3009-413a-a56b-8ad6a83aac75">
+				<reportElement x="13" y="45" width="276" height="13" uuid="2b5f5a4d-3009-413a-a56b-8ad6a83aac75">
 					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{reu} != null]]></printWhenExpression>
 				</reportElement>
 				<textElement markup="none">
@@ -87,15 +84,24 @@
 				<textFieldExpression><![CDATA["Reu: " + $F{reu}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="13" y="54" width="276" height="14" uuid="454f77ee-3116-4e81-a84b-8c66fd8b7ade">
+				<reportElement x="13" y="58" width="276" height="13" uuid="454f77ee-3116-4e81-a84b-8c66fd8b7ade">
 					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$F{reu} != null]]></printWhenExpression>
 				</reportElement>
 				<textElement markup="none">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Dt. Audiência: _____/_____/_______     Hora: _____:_____"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement x="13" y="19" width="276" height="13" uuid="caba1078-233f-4671-81fe-e53cfea22ad8">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{vara} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{local}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

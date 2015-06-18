@@ -41,9 +41,9 @@ public class JuridicoRel
 	       
 		if ( print.getPages().size() > 0 )
 		{
-			//JasperPrintManager.printPage(print, 0, true);//for Direct print  
+			JasperPrintManager.printPage(print, 0, true);//for Direct print  
 			
-			 JasperViewer.viewReport(print, false);
+			// JasperViewer.viewReport(print, false);
 		}
 		else
 		{

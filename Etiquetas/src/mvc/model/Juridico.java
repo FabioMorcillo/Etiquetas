@@ -79,12 +79,12 @@ public class Juridico
 	{
 		String local = "";
 		
-		if (!vara.isEmpty())
+		if ((vara != null) && (!vara.isEmpty()))
 		{
 			local += vara;
 		}
 		
-		if (!juizo.isEmpty())
+		if ((juizo != null) && (!juizo.isEmpty()))
 		{
 			if (!local.isEmpty()) 
 			{
@@ -94,7 +94,7 @@ public class Juridico
 			local += juizo;
 		}
 		
-		if (!comarca.isEmpty())
+		if ((comarca != null) && (!comarca.isEmpty()))
 		{
 			if (!local.isEmpty()) 
 			{
