@@ -62,7 +62,7 @@
                   </Pane>
                </top>
                <center>
-                  <TableView fx:id="tbl_Etiquetas" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="tbl_Etiquetas" onKeyReleased="#tbl_Etiquetas_KeyReleased" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <columns>
                       <TableColumn fx:id="tblcol_Etiqueta" editable="false" maxWidth="631.0" minWidth="50.0" prefWidth="631.0" sortable="false" text="ETIQUETAS" />
                     </columns>
@@ -77,7 +77,7 @@
          <top>
             <Pane prefHeight="41.0" prefWidth="670.0" style="-fx-background-color: #77ea85;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="lblAgendamento" cache="true" layoutX="14.0" layoutY="5.0" text="Cadastro de Etiqueta" textFill="WHITE">
+                  <Label fx:id="lblCadastroAlteracao" cache="true" layoutX="14.0" layoutY="5.0" text="Cadastro de Etiqueta" textFill="WHITE">
                      <effect>
                         <DropShadow offsetY="3.0" />
                      </effect>
@@ -91,7 +91,7 @@
          <bottom>
             <Pane prefHeight="57.0" prefWidth="670.0" style="-fx-background-color: #76e8846f;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnCadastrar" layoutX="490.0" layoutY="11.0" minHeight="35.0" mnemonicParsing="false" onAction="#btnCadastrar_Clicked" prefHeight="20.0" prefWidth="166.0" text="Cadastrar">
+                  <Button fx:id="btnCadastrarAlterar" layoutX="490.0" layoutY="11.0" minHeight="35.0" mnemonicParsing="false" onAction="#btnCadastrar_Clicked" prefHeight="20.0" prefWidth="166.0" text="Cadastrar">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>

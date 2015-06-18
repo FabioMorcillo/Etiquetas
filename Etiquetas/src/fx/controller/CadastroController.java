@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import mvc.model.Juridico;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,18 +18,18 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import reports.JuridicoRel;
 
 public class CadastroController implements Initializable
 {
@@ -39,11 +40,18 @@ public class CadastroController implements Initializable
 		this.etiquetas = etiquetas;
 	}
 
+	private Juridico juridicoAlteracao;
+	
 	private ObservableList<EtiquetasTableView> data;
 	
 	@FXML private TableView<EtiquetasTableView> tbl_Etiquetas;
 	
 	@FXML private TableColumn<EtiquetasTableView, String> tblcol_Etiqueta;
+
+	@FXML private Label lblCadastroAlteracao;
+	@FXML private Button btnCadastrarAlterar;
+	@FXML private Button btnImprimir;
+	@FXML private Button btnResetar;
 	
 	@FXML private TextField txtVara;
 	@FXML private TextField txtJuizo;
@@ -61,32 +69,62 @@ public class CadastroController implements Initializable
 		
 		lblQuantidade.setText("Etiquetas -> " + etiquetas.size());
 		
+		tbl_Etiquetas.setOnMousePressed(new EventHandler<MouseEvent>() 
+				{
+				    @Override 
+				    public void handle(MouseEvent event) 
+				    {
+				        if (event.isPrimaryButtonDown() && event.getClickCount() == 2) 
+				        {
+				        	if ( tbl_Etiquetas.getSelectionModel().getSelectedItem() != null )
+				        	{
+				        		juridicoAlteracao = tbl_Etiquetas.getSelectionModel().getSelectedItem().getJuridico();
+				        		
+					        	lblCadastroAlteracao.setText("Alteração de Etiqueta");
+					        	btnCadastrarAlterar.setText("Alterar");
+					        	
+					            txtVara.setText(juridicoAlteracao.getVara());
+					            txtJuizo.setText(juridicoAlteracao.getJuizo());
+					            txtComarca.setText(juridicoAlteracao.getComarca());
+					            txtProcesso.setText(juridicoAlteracao.getProcesso());
+					            txtAutor.setText(juridicoAlteracao.getAutor());
+					            txtReu.setText(juridicoAlteracao.getReu());
+					            
+					            txtVara.requestFocus();
+					            
+					            tbl_Etiquetas.setDisable(true);
+					            btnImprimir.setDisable(true);
+				        	}
+				        }
+				    }
+				});
+		
 		AtualizarLista();
+		
+		Platform.runLater(() -> { txtVara.requestFocus();});
+		
 	}
 
+@FXML private void tbl_Etiquetas_KeyReleased(KeyEvent keyevent) 
+	{
+
+		if ( keyevent.getCode() == KeyCode.DELETE ) {
+		
+			if ( tbl_Etiquetas.getSelectionModel().getSelectedItem() != null )
+			{
+				Juridico juridicoExcluir = tbl_Etiquetas.getSelectionModel().getSelectedItem().getJuridico();
+				
+				etiquetas.remove(juridicoExcluir);
+				
+				AtualizarLista();
+			}
+			
+		}
+		
+	}	
+	
 	private void AtualizarLista()
 	{
-		tbl_Etiquetas.setOnMousePressed(new EventHandler<MouseEvent>() 
-		{
-		    @Override 
-		    public void handle(MouseEvent event) 
-		    {
-		        if (event.isPrimaryButtonDown() && event.getClickCount() == 2) 
-		        {
-		        	Juridico juridico = tbl_Etiquetas.getSelectionModel().getSelectedItem().getJuridico();
-		        	
-		            txtVara.setText(juridico.getVara());
-		            txtJuizo.setText(juridico.getJuizo());
-		            txtComarca.setText(juridico.getComarca());
-		            txtProcesso.setText(juridico.getProcesso());
-		            txtAutor.setText(juridico.getAutor());
-		            txtReu.setText(juridico.getReu());
-		            
-		            txtVara.requestFocus();		            
-		        }
-		    }
-		});
-		
 		tbl_Etiquetas.getItems().clear();
 		
 		data = FXCollections.observableArrayList();
@@ -105,6 +143,18 @@ public class CadastroController implements Initializable
 		tbl_Etiquetas.setItems(data);
 		
 		lblQuantidade.setText("Etiquetas -> " + etiquetas.size());
+		
+		if ( etiquetas.size() == 0 )
+		{
+			btnResetar.setDisable(true);
+			btnImprimir.setDisable(true);
+		}
+		else
+		{
+			btnResetar.setDisable(false);
+			btnImprimir.setDisable(false);
+		}
+		
 	}
 	
 @FXML private void btnCadastrar_Clicked() 
@@ -189,11 +239,22 @@ public class CadastroController implements Initializable
 
 		//System.out.println(etiquetas.size()+1);
 		
-		etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), txtJuizo.getText(), txtComarca.getText(), txtProcesso.getText(), txtAutor.getText(), txtReu.getText()));
+
+		if ( juridicoAlteracao == null )
+		{
+			etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), txtJuizo.getText(), txtComarca.getText(), txtProcesso.getText(), txtAutor.getText(), txtReu.getText()));
+		}
+		else
+		{
+			juridicoAlteracao.setVara(txtVara.getText());
+			juridicoAlteracao.setJuizo(txtJuizo.getText());
+			juridicoAlteracao.setComarca(txtComarca.getText());
+			juridicoAlteracao.setProcesso(txtProcesso.getText());
+			juridicoAlteracao.setAutor(txtAutor.getText());
+			juridicoAlteracao.setReu(txtReu.getText());
+		}
 
 		btnCancelar_Clicked();
-		
-		
 		
 		AtualizarLista();
 	}
@@ -202,11 +263,25 @@ public class CadastroController implements Initializable
 {
 	etiquetas.clear();
 	
+	btnCancelar_Clicked();
+	
 	AtualizarLista();
 }
 
 @FXML private void btnCancelar_Clicked()
 {
+	juridicoAlteracao = null;
+	
+	lblCadastroAlteracao.setText("Cadastro de Etiqueta");
+	btnCadastrarAlterar.setText("Cadastrar");
+	
+	tbl_Etiquetas.setDisable(false);
+	
+	if ( etiquetas.size() > 0 )
+	{
+		btnImprimir.setDisable(false);
+	}
+	
 	txtVara.setText("");
 	txtJuizo.setText("");
 	txtComarca.setText("");
