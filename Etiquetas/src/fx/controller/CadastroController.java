@@ -3,6 +3,7 @@ package fx.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import mvc.model.Juridico;
@@ -19,6 +20,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -62,9 +65,30 @@ public class CadastroController implements Initializable
 	
 	@FXML private Label lblQuantidade;
 	
+	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		txtVara.textProperty().addListener((ov, oldValue, newValue) -> {
+		     txtVara.setText(newValue.toUpperCase());
+		});
+		txtJuizo.textProperty().addListener((ov, oldValue, newValue) -> {
+		     txtJuizo.setText(newValue.toUpperCase());
+		});
+		txtComarca.textProperty().addListener((ov, oldValue, newValue) -> {
+		     txtComarca.setText(newValue.toUpperCase());
+		});
+		txtProcesso.textProperty().addListener((ov, oldValue, newValue) -> {
+		     txtProcesso.setText(newValue.toUpperCase());
+		});
+		txtAutor.textProperty().addListener((ov, oldValue, newValue) -> {
+		     txtAutor.setText(newValue.toUpperCase());
+		});
+		txtReu.textProperty().addListener((ov, oldValue, newValue) -> {
+		     txtReu.setText(newValue.toUpperCase());
+		});
+		
 		tblcol_Etiqueta.setCellValueFactory(new PropertyValueFactory< EtiquetasTableView, String> ("etiqueta"));
 		
 		lblQuantidade.setText("Etiquetas -> " + etiquetas.size());
@@ -131,7 +155,7 @@ public class CadastroController implements Initializable
 		
 		for ( Juridico etiqueta : etiquetas )
 		{
-			String etq = etiqueta.getVara() + "/" + etiqueta.getJuizo() + "/" + etiqueta.getComarca()+"\n";
+			String etq = etiqueta.getLocal()+"\n";
 			
 			etq += "Processo: " + etiqueta.getProcesso() + "\n";
 			etq += "Autor: " + etiqueta.getAutor() + "\n";
@@ -261,11 +285,28 @@ public class CadastroController implements Initializable
 
 @FXML private void btnResetar_Clicked()
 {
-	etiquetas.clear();
-	
-	btnCancelar_Clicked();
-	
-	AtualizarLista();
+	if ( etiquetas.size() > 0 ) 
+	{
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Etiquetas");
+		alert.setHeaderText("Confirma apagar todas as etiquetas");
+		alert.setContentText(null);
+
+		ButtonType buttonTypeApagar = new ButtonType("Apagar", ButtonData.APPLY);
+		ButtonType buttonTypeCancel = new ButtonType("Cancelar", ButtonData.OK_DONE);
+
+		alert.getButtonTypes().setAll(buttonTypeApagar, buttonTypeCancel);
+		
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeApagar)
+		{
+			etiquetas.clear();
+			
+			btnCancelar_Clicked();
+		
+			AtualizarLista();
+		} 	
+	}
 }
 
 @FXML private void btnCancelar_Clicked()

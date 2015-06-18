@@ -74,6 +74,37 @@ public class Juridico
 	public void setReu(String reu) {
 		this.reu = reu;
 	}
-	
+
+	public String getLocal()
+	{
+		String local = "";
+		
+		if (!vara.isEmpty())
+		{
+			local += vara;
+		}
+		
+		if (!juizo.isEmpty())
+		{
+			if (!local.isEmpty()) 
+			{
+				local += "/";
+			}
+			
+			local += juizo;
+		}
+		
+		if (!comarca.isEmpty())
+		{
+			if (!local.isEmpty()) 
+			{
+				local += "/";
+			}
+			
+			local += comarca;
+		}
+		
+		return local;
+	}
 	
 }
