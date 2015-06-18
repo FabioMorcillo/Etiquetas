@@ -118,7 +118,7 @@ public class CadastroController implements Initializable
 					            txtAutor.setText(juridicoAlteracao.getAutor());
 					            txtReu.setText(juridicoAlteracao.getReu());
 					            
-					            txtProcesso.requestFocus();
+					            txtVara.requestFocus();
 					            
 					            tbl_Etiquetas.setDisable(true);
 					            btnImprimir.setDisable(true);
@@ -129,7 +129,7 @@ public class CadastroController implements Initializable
 		
 		AtualizarLista();
 		
-		Platform.runLater(() -> { txtProcesso.requestFocus();});
+		Platform.runLater(() -> { txtVara.requestFocus();});
 		
 	}
 
@@ -159,11 +159,11 @@ public class CadastroController implements Initializable
 		
 		for ( Juridico etiqueta : etiquetas )
 		{
-			String etq = "Processo: " + etiqueta.getProcesso() + "\n";
+			String etq = etiqueta.getLocal()+"\n";
 			
-			etq += etiqueta.getLocal()+"\n";
 			etq += "Autor: " + etiqueta.getAutor() + "\n";
-			etq += "Reu: " + etiqueta.getReu();
+			etq += "Reu: " + etiqueta.getReu() + "\n";
+			etq += "Processo: " + etiqueta.getProcesso();
 			
 			data.add(new EtiquetasTableView(etq, etiqueta));
 		}
@@ -348,7 +348,7 @@ public class CadastroController implements Initializable
 	txtAutor.setText("");
 	txtReu.setText("");
 	
-	txtProcesso.requestFocus();
+	txtVara.requestFocus();
 }
 
 @FXML private void btnSair_Clicked(ActionEvent event) 

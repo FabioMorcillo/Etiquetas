@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
-<!-- 2015-06-18T12:30:27 -->
+<!-- 2015-06-18T16:20:35 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" columnCount="2" printOrder="Horizontal" pageWidth="612" pageHeight="792" columnWidth="294" columnSpacing="14" leftMargin="5" rightMargin="5" topMargin="34" bottomMargin="5" uuid="16294267-2b88-4542-a693-6dd3de36e783">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -61,7 +61,7 @@
 				<textElement markup="none">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Processo: " + $F{processo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{local}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="13" y="32" width="276" height="13" uuid="9e6784ef-1e2d-40c5-a6ce-1db77c7ae4be">
@@ -71,7 +71,7 @@
 				<textElement markup="none">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Autor: " + $F{autor}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Reu: " + $F{reu}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="13" y="45" width="276" height="13" uuid="2b5f5a4d-3009-413a-a56b-8ad6a83aac75">
@@ -81,7 +81,7 @@
 				<textElement markup="none">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Reu: " + $F{reu}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Processo: " + $F{processo}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="13" y="58" width="276" height="13" uuid="454f77ee-3116-4e81-a84b-8c66fd8b7ade">
@@ -101,7 +101,7 @@
 				<textElement markup="none">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{local}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Autor: " + $F{autor}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
