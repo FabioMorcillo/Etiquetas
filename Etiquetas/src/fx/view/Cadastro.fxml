@@ -31,7 +31,7 @@
                <center>
                   <TableView fx:id="tbl_Etiquetas" onKeyReleased="#tbl_Etiquetas_KeyReleased" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <columns>
-                      <TableColumn fx:id="tblcol_Etiqueta" editable="false" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="300.0" resizable="false" sortable="false" text="ETIQUETAS" />
+                      <TableColumn fx:id="tblcol_Etiqueta" editable="false" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="300.0" sortable="false" text="ETIQUETAS" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -85,15 +85,11 @@
          <center>
             <Pane prefHeight="234.0" prefWidth="670.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="txtVara" layoutX="15.0" layoutY="35.0" prefHeight="31.0" prefWidth="189.0" />
-                  <TextField fx:id="txtJuizo" layoutX="241.0" layoutY="35.0" prefHeight="31.0" prefWidth="189.0" />
-                  <TextField fx:id="txtComarca" layoutX="468.0" layoutY="35.0" prefHeight="31.0" prefWidth="189.0" />
+                  <TextField fx:id="txtVara" layoutX="15.0" layoutY="35.0" prefHeight="31.0" prefWidth="643.0" />
                   <TextField fx:id="txtAutor" layoutX="14.0" layoutY="93.0" prefHeight="31.0" prefWidth="643.0" />
                   <TextField fx:id="txtReu" layoutX="14.0" layoutY="151.0" prefHeight="31.0" prefWidth="643.0" />
                   <TextField fx:id="txtProcesso" layoutX="15.0" layoutY="209.0" prefHeight="31.0" prefWidth="416.0" />
-                  <Label layoutX="15.0" layoutY="14.0" text="Vara" />
-                  <Label layoutX="241.0" layoutY="14.0" text="Juízo" />
-                  <Label layoutX="468.0" layoutY="14.0" text="Comarca" />
+                  <Label layoutX="15.0" layoutY="14.0" text="Vara / Juízo / Comarca" />
                   <Label layoutX="14.0" layoutY="72.0" text="Autor" />
                   <Label layoutX="14.0" layoutY="130.0" text="Reu" />
                   <Label layoutX="16.0" layoutY="188.0" text="Processo" />

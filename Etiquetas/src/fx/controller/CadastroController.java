@@ -58,8 +58,6 @@ public class CadastroController implements Initializable
 	@FXML private Button btnResetar;
 	
 	@FXML private TextField txtVara;
-	@FXML private TextField txtJuizo;
-	@FXML private TextField txtComarca;
 	@FXML private TextField txtProcesso;
 	@FXML private TextField txtAutor;
 	@FXML private TextField txtReu;
@@ -77,12 +75,14 @@ public class CadastroController implements Initializable
 		txtVara.textProperty().addListener((ov, oldValue, newValue) -> {
 		     txtVara.setText(newValue.toUpperCase());
 		});
+		/*
 		txtJuizo.textProperty().addListener((ov, oldValue, newValue) -> {
 		     txtJuizo.setText(newValue.toUpperCase());
 		});
 		txtComarca.textProperty().addListener((ov, oldValue, newValue) -> {
 		     txtComarca.setText(newValue.toUpperCase());
 		});
+		*/
 		txtProcesso.textProperty().addListener((ov, oldValue, newValue) -> {
 		     txtProcesso.setText(newValue.toUpperCase());
 		});
@@ -112,8 +112,11 @@ public class CadastroController implements Initializable
 					        	btnCadastrarAlterar.setText("Alterar");
 					        	
 					            txtVara.setText(juridicoAlteracao.getVara());
+					            /*
 					            txtJuizo.setText(juridicoAlteracao.getJuizo());
 					            txtComarca.setText(juridicoAlteracao.getComarca());
+					            */
+					            
 					            txtProcesso.setText(juridicoAlteracao.getProcesso());
 					            txtAutor.setText(juridicoAlteracao.getAutor());
 					            txtReu.setText(juridicoAlteracao.getReu());
@@ -279,18 +282,13 @@ public class CadastroController implements Initializable
 
 		if ( juridicoAlteracao == null )
 		{
-			//for (int i = 1; i <=20; i++)
-			//{
-				etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), txtJuizo.getText(), txtComarca.getText(), txtProcesso.getText(), txtAutor.getText(), txtReu.getText()));				
-			//}
-			
-			
+			etiquetas.add(new Juridico(etiquetas.size()+1, txtVara.getText(), "", "", txtProcesso.getText(), txtAutor.getText(), txtReu.getText()));				
 		}
 		else
 		{
 			juridicoAlteracao.setVara(txtVara.getText());
-			juridicoAlteracao.setJuizo(txtJuizo.getText());
-			juridicoAlteracao.setComarca(txtComarca.getText());
+			juridicoAlteracao.setJuizo("");
+			juridicoAlteracao.setComarca("");
 			juridicoAlteracao.setProcesso(txtProcesso.getText());
 			juridicoAlteracao.setAutor(txtAutor.getText());
 			juridicoAlteracao.setReu(txtReu.getText());
@@ -342,8 +340,10 @@ public class CadastroController implements Initializable
 	}
 	
 	txtVara.setText("");
+	/*
 	txtJuizo.setText("");
 	txtComarca.setText("");
+	*/
 	txtProcesso.setText("");
 	txtAutor.setText("");
 	txtReu.setText("");
